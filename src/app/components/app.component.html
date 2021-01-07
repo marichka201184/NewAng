@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+  <label>Name:<input type="text" formControlName="name"></label>
+  <label>Price:<input type="text" formControlName="price"></label>
+  <label>Shop Id:<input type="text" formControlName="shop_name"></label>
+  <button (click)="save(form)">Save</button>
+</form>
+<div *ngIf="items">
+  <div *ngFor="let item of items ">
+    <div>{{item.id}}--{{item.name}}--{{item.price}}--{{item.shop_name}}--
+    <button (click)="del(item.id)">Delete</button>
+      <form [formGroup]="formUpdate">
+        <label>New Price:<input type="text" formControlName="Newprice"></label>
+        <button (click)="update(item.id,Newprice)">Update</button>
+      </form>
+
+
+    </div>
+  </div>
+</div>
